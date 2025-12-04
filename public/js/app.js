@@ -1,4 +1,6 @@
 // Checkbox text color change
+console.log('Hello World!');
+
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll("input[type='checkbox']").forEach((checkbox) => {
 
