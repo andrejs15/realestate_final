@@ -11,12 +11,12 @@
         </header>
         <main class="flex">
             @include('partials.left-bar')
-            @include('partials.article')
             @yield('content')
+
         </main>
     </div>
     <button id="toggle-map" class="fa fa-map-marker"></button>
-    <div class="sidebar" id=sidebar-section">
+    <div class="sidebar" id="sidebar-section">
         <img src="{{asset('img/map.png')}}" alt="" width="463">
     </div>
 
