@@ -21,6 +21,7 @@ img {
 
 .flex {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
 }
 
@@ -286,8 +287,8 @@ main {
 
 .main-image-section {
     width: 100%;
-    max-width: 808px;
-    flex-direction: column;
+    max-width: 812px;
+    display: flex;
 }
 
 .image-box-wrapper {

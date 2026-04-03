@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Property;
 
 class PropertyController extends Controller
 {
@@ -10,24 +11,39 @@ class PropertyController extends Controller
     {
         $title = 'Ponuka nehnuteľností';
 
-        $properties = [
-            [
-                'title' => 'Moderný byt v centre',
-                'price' => 185000,
-                'location' => 'Bratislava',
-            ],
-            [
-                'title' => 'Rodinný dom so záhradou',
-                'price' => 289000,
-                'location' => 'Žilina',
-            ],
-            [
-                'title' => 'Malý apartmán',
-                'price' => 99000,
-                'location' => 'Košice',
-            ],
-        ];
+        $properties = Property::all();
 
         return view('home', compact('title', 'properties'));
+    }
+
+    public function create()
+    {
+        return view('properties.create');
+    }
+
+    public function store(Request $request)
+    {
+        $property = new Property();
+        $property->title = $request->title;
+        $property->price = $request->price;
+        $property->location = $request->location;
+
+        $property->save();
+        return redirect(route('home'));
+    }
+
+    public function show($id)
+    {
+
+    }
+
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    public function destroy(string $id)
+    {
+        //
     }
 }
