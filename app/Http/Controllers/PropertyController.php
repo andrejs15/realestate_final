@@ -34,7 +34,8 @@ class PropertyController extends Controller
 
     public function show($id)
     {
-
+        $property = Property::findOrFail($id);
+        return view('properties.show', compact('property'));
     }
 
     public function update(Request $request, string $id)

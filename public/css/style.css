@@ -241,7 +241,7 @@ main {
 
 .main-section {
     width: 100%;
-    max-width: 808px;
+    max-width: 780px;
 }
 
 .main-header {
@@ -264,8 +264,10 @@ main {
 }
 
 .sort-container {
+    flex-direction: row;
+    flex-wrap: nowrap;
     width: 25.25%;
-    max-width: 225px;
+    max-width: 230px;
     align-items: center;
     padding: 0.5em 1em;
     border: 1px solid #ccc;
@@ -287,20 +289,20 @@ main {
 
 .main-image-section {
     width: 100%;
-    max-width: 812px;
+    max-width: 800px;
     display: flex;
 }
 
 .image-box-wrapper {
     flex-direction: row;
-    gap: 1em;
+    gap: 0.5em;
     max-width: 100%;
     margin-top: 2em;
     justify-content: space-between;
 }
 
 .main-image-box {
-    max-width: 388px;
+    max-width: 368px;
     padding: 0.5em;
     border-radius: 0.5em;
     border: 1px solid rgba(163, 161, 161, 0.3);
