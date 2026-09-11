@@ -11,6 +11,7 @@
                 Reset filters
             </button>
             <span>5</span>
+
         </div>
     </div>
 
@@ -19,13 +20,7 @@
             <x-form-section-check
                 title="Property type"
                 name="property-type"
-                :options="[
-                    'house' => 'House',
-                    'apartment' => 'Apartment',
-                    'room' => 'Room',
-                    'townhall' => 'Townhall',
-                    'parking' => 'Parking'
-                ]"
+                :options="$propertyTypes->pluck('name', 'id')->toArray()"
                 :checked="[
                     'house'
                 ]"
