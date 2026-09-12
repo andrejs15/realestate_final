@@ -1,4 +1,4 @@
- <h3><strong>Real</strong>Estate</h3>
+<h3>  <a href="{{route('home')}}" id="homepage" class="!text-black"><strong>Real</strong>Estate </a></h3>
 
 <ul>
     <li> <a href="#">Buy</a> </li>
@@ -13,4 +13,4 @@
     </svg>
     Add Listing
 </a>
-<img src="{{asset('img/dude.png')}}" alt="#" width='60' id="dude">
+<img src="{{asset('img/dude1.jpeg')}}" alt="#" width='60' id="dude">

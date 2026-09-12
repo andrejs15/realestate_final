@@ -64,16 +64,10 @@
 
             <x-form-section-check
                 title="Accessibility Features"
-                name="accesibility"
-                :options="[
-                    'extra-wide doorways' => 'Extra-wide doorways',
-                    'ramps' => 'Ramps',
-                    'grab bars' => 'Grab bars',
-                    'lower counter heights' => 'Lower counter heights',
-                    'spanish' => 'Spanish'
-                ]"
+                name="accessibility"
+                :options="$accessibilityFeatures->pluck('name', 'id')->toArray()"
                 :checked="[
-                    'extra-wide doorways'
+
                 ]"
             />
         </form>
