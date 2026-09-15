@@ -30,6 +30,18 @@ document.addEventListener("DOMContentLoaded", () => {
     toggleMap.addEventListener("click", function () {
         sidebar.classList.toggle("active");
     })
+
+    const description = document.getElementById("description");
+    const descriptionCounter = document.getElementById("description-counter");
+
+    if (description && descriptionCounter) {
+        const maxLength = description.maxLength;
+        descriptionCounter.textContent = maxLength - description.value.length;
+
+        description.addEventListener("input", (e) => {
+            descriptionCounter.textContent = maxLength - description.value.length;
+        })
+    }
 })
 
 function check(input) {
@@ -40,6 +52,7 @@ function check(input) {
         label.classList.remove("checked");
     }
 }
+
 /*
 // Mobile version show/hide filters
 document.addEventListener("DOMContentLoaded", function () {
