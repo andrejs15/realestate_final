@@ -18,6 +18,9 @@ class Property extends Model
         return $this->hasMany(PropertyImage::class);
     }
 
+    public function mainImage() {
+        return $this->hasOne(PropertyImage::class)->where('isMainImage', true);
+    }
     public function accessibilityFeatures()
     {
         return $this->belongsToMany(AccessibilityFeature::class);

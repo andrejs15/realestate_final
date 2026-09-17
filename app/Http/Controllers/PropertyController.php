@@ -6,6 +6,7 @@ use App\Models\Property;
 use App\Models\PropertyType;
 use App\Models\AccessibilityFeature;
 use App\Models\StyleOfHome;
+use App\Models\PropertyImage;
 use Illuminate\Http\Request;
 
 
@@ -15,7 +16,7 @@ class PropertyController extends Controller
     {
         $title = 'Ponuka nehnuteľností';
 
-        $properties = Property::all();
+        $properties = Property::with('mainImage')->get();
         $propertyTypes = PropertyType::orderBy('id')->get();
         $accessibilityFeatures = AccessibilityFeature::orderBy('id')->get();
 
@@ -35,18 +36,20 @@ class PropertyController extends Controller
     {
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
-            'price' => 'required|numeric|min:0',
+            'price' => 'required|integer|min:0',
             'location' => 'required|string|max:255',
             'description' => 'required|string|max:2000',
-            'rooms' => 'required|numeric|min:1',
-            'baths' => 'required|numeric|min:0',
-            'size' => 'required|numeric|min:1',
+            'rooms' => 'required|integer|min:1',
+            'baths' => 'required|integer|min:0',
+            'size' => 'required|integer|min:1',
 
             'property_type_id' => 'required|exists:property_types,id',
             'style_of_home_id' => 'required|exists:style_of_homes,id',
 
             'accessibility_features' => 'nullable|array',
             'accessibility_features.*' => 'exists:accessibility_features,id',
+            'images' => 'nullable|array|max:8',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:5120',
         ]);
 
         $property = new Property;
@@ -59,10 +62,21 @@ class PropertyController extends Controller
         $property->baths = $validatedData['baths'];
         $property->size = $validatedData['size'];
 
-        $property->property_type_id= $validatedData['property_type_id'];
+        $property->property_type_id = $validatedData['property_type_id'];
         $property->style_of_home_id = $validatedData['style_of_home_id'];
 
         $property->save();
+
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $index => $image) {
+                $path = $image->store('property-images', 'public');
+                $propertyImage = new PropertyImage();
+                $propertyImage->imagePath = $path;
+                $propertyImage->isMainImage = $index === 0;
+
+                $property->images()->save($propertyImage);
+            }
+        }
 
         $property->accessibilityFeatures()->sync($validatedData['accessibility_features'] ?? []);
 
