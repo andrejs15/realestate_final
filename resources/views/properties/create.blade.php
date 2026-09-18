@@ -242,15 +242,9 @@
                         @endforeach
                     </div>
                 </div>
-                <div class="mt-8 flex justify-end border-t border-gray-200 pt-5">
 
-                    <button type="submit" class="rounded-md bg-blue-600 px-5 py-2 text-base font-semibold text-white
-                    transition duration-200 hover:bg-blue-700 border-gray-300 border-1 cursor-pointer"
-                    >Uložiť
-                    </button>
-                </div>
 
-                <div class="mt-5">
+                <div class="mt-5 ">
 
                     <label class="mb-2 block font-medium text-gray-700">
                         Fotografie nehnuteľnosti
@@ -265,7 +259,16 @@
                         <input
                             type="file" id="images" name="images[]" accept="image/*" multiple class="sr-only">
                     </label>
+                <div class="mt-3 grid grid-cols-2 gap-3 border-1 border-gray-400 sm:grid-cols-3 md:grid-cols-4 invisible" id="image-preview">
 
+                </div>
+                </div>
+                <div class="flex justify-end ">
+
+                    <button type="submit" class="rounded-md bg-blue-600 px-5 py-2 text-base font-semibold text-white
+                    transition duration-200 hover:bg-blue-700 border-gray-300 border-1 cursor-pointer"
+                    >Uložiť
+                    </button>
                 </div>
             </form>
         </div>

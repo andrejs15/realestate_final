@@ -42,6 +42,24 @@ document.addEventListener("DOMContentLoaded", () => {
             descriptionCounter.textContent = maxLength - description.value.length;
         })
     }
+
+    const imageInput = document.getElementById("images");
+    const imagePreview = document.getElementById("image-preview");
+
+    if (imageInput && imagePreview) {
+        imageInput.addEventListener("change", (e) => {
+            imagePreview.innerHTML = "";
+            Array.from(imageInput.files).forEach((file) => {
+                const image = document.createElement("img");
+                image.src = URL.createObjectURL(file);
+                image.classList.add("h-28", "w-full", "rounded-lg", "object-cover");
+                imagePreview.appendChild(image);
+                imagePreview.classList.remove("invisible");
+                imagePreview.classList.add("mb-3", "p-2");
+            })
+
+        })
+    }
 })
 
 function check(input) {
