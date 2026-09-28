@@ -1,0 +1,4 @@
+[submodule "vaiicko"]
+	path = vaiicko
+	url = https://github.com/thevajko/vaiicko.git
+	branch = master

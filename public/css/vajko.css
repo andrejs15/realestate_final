@@ -1,0 +1,29 @@
+/* AI-assisted migration-only CSS additions. The original student CSS remains in style.css. */
+.vajko-page {
+    min-height: calc(100vh - 11.25em);
+}
+
+.property-detail {
+    max-width: none !important;
+}
+
+.property-detail p {
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 1024px) {
+    .property-detail {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .vajko-page {
+        min-height: auto;
+    }
+
+    .fixed .max-w-\[50vw\] {
+        max-width: 94vw !important;
+    }
+}
