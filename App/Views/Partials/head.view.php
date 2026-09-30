@@ -7,5 +7,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="<?= $link->asset('css/style.css') ?>">
+<link rel="stylesheet" href="<?= $link->asset('css/tailwind.css') ?>">
 <link rel="stylesheet" href="<?= $link->asset('css/vajko.css') ?>">
-<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
